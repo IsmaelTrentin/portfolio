@@ -1,9 +1,18 @@
+import { createStyles } from '@mantine/core';
 import type { NextPage } from 'next'
 
-const Home: NextPage = () => {
-  return (
-    <div>Hello NextJS + MantineUI</div>
-  );
-}
+const useStyles = createStyles((theme) => ({
+  'main': {}
+}));
 
-export default Home
+const Home: NextPage = () => {
+  const { classes } = useStyles();
+
+  return (
+    <div className={classes.main}>
+      Hello NextJS + MantineUI
+    </div>
+  );
+};
+
+export default Home;
