@@ -8,6 +8,7 @@ export const globalStyles: MantineThemeOverride["globalStyles"] = (theme) => ({
   },
   body: {
     ...theme.fn.fontStyles(),
+    fontSize: 16,
     lineHeight: theme.lineHeight,
   },
 });

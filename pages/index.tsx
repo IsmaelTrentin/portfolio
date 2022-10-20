@@ -1,5 +1,6 @@
 import { createStyles } from '@mantine/core';
 import type { NextPage } from 'next'
+import { Main } from '../sections/Main';
 
 const useStyles = createStyles((theme) => ({
   'main': {}
@@ -10,7 +11,7 @@ const Home: NextPage = () => {
 
   return (
     <div className={classes.main}>
-      Hello NextJS + MantineUI
+      <Main />
     </div>
   );
 };
