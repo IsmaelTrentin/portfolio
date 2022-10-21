@@ -6,4 +6,11 @@ export const theme: MantineThemeOverride = {
   defaultRadius: 4,
   transitionTimingFunction: 'ease',
   fontFamily: 'Montserrat',
+  radius: {
+    xs: 1,
+    sm: 2,
+    md: 4,
+    lg: 8,
+    xl: 12,
+  },
 };
