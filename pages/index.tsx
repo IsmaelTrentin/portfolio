@@ -1,8 +1,9 @@
-import { createStyles } from '@mantine/core';
-import type { NextPage } from 'next'
+import { Bio } from '../sections/Bio';
 import { Main } from '../sections/Main';
+import type { NextPage } from 'next';
+import { createStyles } from '@mantine/core';
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles(() => ({
   'main': {}
 }));
 
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
   return (
     <div className={classes.main}>
       <Main />
+      <Bio />
     </div>
   );
 };
