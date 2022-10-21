@@ -1,18 +1,19 @@
 import { createStyles } from '@mantine/core';
+import { sectionStyles } from '../../styles/section';
 
-export const useStyles = createStyles((theme) => ({
+export const useStyles = createStyles(() => ({
   section: {
+    ...sectionStyles,
     display: 'flex',
     flexFlow: 'column nowrap',
     justifyContent: 'center',
-    minHeight: '100vh',
-    padding: '8rem',
-    backgroundColor: '#e942f530'
+    alignSelf: 'flex-start',
+    backgroundColor: '#e942f530',
   },
   title: {
     fontSize: '3.5rem',
     fontWeight: 400,
-    lineHeight: '4rem',
+    lineHeight: '3.5rem',
   },
   subtitle: {
     fontWeight: 400,
@@ -21,6 +22,6 @@ export const useStyles = createStyles((theme) => ({
     '& > span': {
       margin: '0 1rem',
       opacity: 0.5,
-    }
-  }
+    },
+  },
 }));
