@@ -15,9 +15,18 @@ export const useStyles = createStyles(theme => ({
   image: {
     width: '100%',
     maxWidth: 500,
-    height: '100%',
+    height: '145%',
     backgroundColor: 'black',
     borderRadius: theme.radius.xl,
   },
-  content: {},
+  title: {
+    fontSize: '3rem !important',
+  },
+  'hobbies-wrapper': {
+    height: '5rem',
+    padding: '1rem',
+  },
+  content: {
+    textAlign: 'justify',
+  },
 }));

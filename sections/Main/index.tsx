@@ -1,6 +1,5 @@
-import { Button, Text } from '@mantine/core';
-
 import React from 'react';
+import { Button, Text } from '@mantine/core';
 import { Section } from '../../components/Section';
 import { useStyles } from './styles';
 
