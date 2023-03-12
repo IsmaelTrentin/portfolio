@@ -12,5 +12,12 @@ export const useStyles = createStyles(theme => ({
   title: {
     fontSize: '3rem !important',
     textAlign: 'center',
+    marginBottom: '2rem',
+  },
+  projects: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'center',
+    gap: '1rem',
   },
 }));

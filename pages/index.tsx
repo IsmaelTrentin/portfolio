@@ -1,7 +1,8 @@
-import { Bio } from '../sections/Bio';
 import { createStyles } from '@mantine/core';
-import { Languages } from '../sections/Languages';
 import { Main } from '../sections/Main';
+import { ProjectData } from '../@types';
+import { Projects } from '../sections/Projects';
+import { readFile } from 'fs/promises';
 import { ScrollProgress } from '../components/ScrollProgess';
 import type { NextPage } from 'next';
 
@@ -15,7 +16,11 @@ const useStyles = createStyles(() => ({
   },
 }));
 
-const Home: NextPage = () => {
+interface Props {
+  projects: ProjectData[];
+}
+
+const Home: NextPage<Props> = ({ projects }) => {
   const { classes } = useStyles();
 
   return (
@@ -24,10 +29,20 @@ const Home: NextPage = () => {
         <ScrollProgress />
       </div>
       <Main />
-      <Bio />
-      <Languages />
+      <Projects projects={projects} />
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const data = await readFile('./data/projects.json');
+  const parsed = JSON.parse(data.toString());
+
+  return {
+    props: {
+      projects: parsed as ProjectData[],
+    },
+  };
+}
 
 export default Home;

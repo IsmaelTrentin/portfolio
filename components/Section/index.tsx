@@ -7,11 +7,7 @@ interface Props {
 }
 
 export const Section: React.FC<Props> = props => {
-  const {
-    className,
-    style,
-    children,
-  } = props;
+  const { className, style, children } = props;
 
   return (
     <div

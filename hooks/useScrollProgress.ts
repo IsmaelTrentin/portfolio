@@ -5,10 +5,7 @@ export const useScrollProgress = () => {
 
   useEffect(() => {
     const handleScroll = () => setY(window.scrollY);
-
     handleScroll();
-
-    console.log(window);
 
     window.addEventListener('scroll', handleScroll);
 

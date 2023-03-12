@@ -15,6 +15,6 @@ export const useStyles = createStyles(theme => ({
     left: 0,
     maxWidth: '100%',
     backgroundColor: theme.colors.indigo[9],
-    transition: 'right 80ms ease',
+    transition: 'right 80ms ease-out',
   },
 }));

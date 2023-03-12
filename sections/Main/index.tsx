@@ -1,38 +1,38 @@
 import React from 'react';
-import { Button, Text } from '@mantine/core';
+import { InfoCode } from '../../components/InfoCode';
 import { Section } from '../../components/Section';
+import { Text } from '@mantine/core';
 import { useStyles } from './styles';
+import { Waves } from '../../components/Waves';
 
 export const Main: React.FC<Record<string, unknown>> = () => {
   const { classes } = useStyles();
 
   return (
     <Section className={classes.section}>
-      <Text
-        component="h1"
-        className={classes.title}
-      >
-        Ismael Trentin
-      </Text>
-      <Text
-        component="h6"
-        size="sm"
-        className={classes.subtitle}
-      >
-        Informatico Aziendale
-        <span>/</span>
-        Sviluppatore Web
-      </Text>
-      <div></div>
-      {/* <Button
-        fullWidth={false}
-        style={{
-          width:'fit-content',
-          marginTop:'1rem'
-        }}
-      >
-        Lorem Ipsum
-      </Button> */}
+      <div>
+        <Text
+          component="h1"
+          className={classes.title}
+        >
+          Ismael Trentin
+        </Text>
+        <Text
+          component="h6"
+          size="sm"
+          className={classes.subtitle}
+        >
+          IT Technician
+          <span>/</span>
+          Fullstack developer
+        </Text>
+      </div>
+      <div className={classes['info-code']}>
+        <InfoCode />
+      </div>
+      <div className={classes.waves}>
+        <Waves />
+      </div>
     </Section>
   );
 };
