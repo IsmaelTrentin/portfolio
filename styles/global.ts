@@ -1,6 +1,10 @@
 import { MantineThemeOverride } from '@mantine/core';
 
 export const globalStyles: MantineThemeOverride['globalStyles'] = theme => ({
+  '@font-face': {
+    fontFamily: 'Montserrat',
+    src: 'url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype")',
+  },
   '*, *::before, *::after': {
     boxSizing: 'border-box',
     margin: 0,
@@ -8,6 +12,7 @@ export const globalStyles: MantineThemeOverride['globalStyles'] = theme => ({
     // wrong as hell but hey, too late now
     fontSize: 18,
   },
+
   h1: {
     fontWeight: 400,
     fontSize: '3.5rem !important',
