@@ -24,5 +24,17 @@ export const globalStyles: MantineThemeOverride['globalStyles'] = theme => ({
   body: {
     ...theme.fn.fontStyles(),
     lineHeight: theme.lineHeight,
+    '&::-webkit-scrollbar': {
+      width: 10,
+    },
+
+    '&::-webkit-scrollbar-track': {
+      background: theme.colors.gray[1],
+    },
+
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: theme.colors.gray[4],
+      borderRadius: theme.radius.lg,
+    },
   },
 });

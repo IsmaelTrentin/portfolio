@@ -1,7 +1,7 @@
 import { createStyles } from '@mantine/core';
 import { sectionStyles } from '../../styles/section';
 
-export const useStyles = createStyles(() => ({
+export const useStyles = createStyles(theme => ({
   section: {
     ...sectionStyles,
     paddingLeft: '10rem',
@@ -12,7 +12,8 @@ export const useStyles = createStyles(() => ({
     flexFlow: 'row wrap',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#e942f530',
+    // backgroundColor: '#e942f530',
+    backgroundColor: theme.colors.violet[3],
   },
   title: {
     fontSize: '3.5rem',
