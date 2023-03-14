@@ -3,11 +3,6 @@ import { enLocale } from './en';
 import { initReactI18next } from 'react-i18next';
 import { itLocale } from './it';
 
-type KV = {
-  key: string;
-  value: string;
-};
-
 export type Locale = {
   itTechnician: string;
   fullstackDev: string;
@@ -19,6 +14,7 @@ export type LocaleKeys = keyof typeof enLocale;
 
 export const setup = () => {
   i18n.use(initReactI18next).init({
+    lng: 'en',
     resources: {
       en: {
         translation: enLocale,
@@ -27,7 +23,7 @@ export const setup = () => {
         translation: itLocale,
       },
     },
-    lng: 'en',
+    supportedLngs: ['it', 'en', 'de', 'fr'],
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false,
