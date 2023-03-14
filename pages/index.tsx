@@ -1,18 +1,36 @@
+import * as localizer from '../locales/localizer';
+import i18next from 'i18next';
 import { createStyles } from '@mantine/core';
+import { LanguageSwitcher } from '../components/LanguageSwitcher';
 import { Main } from '../sections/Main';
 import { ProjectData } from '../@types';
 import { Projects } from '../sections/Projects';
 import { readFile } from 'fs/promises';
-import { ScrollProgress } from '../components/ScrollProgess';
+import { ScrollToTop } from '../components/ScrollToTop';
+import { useEffect } from 'react';
+import { useLocaleStore } from '../stores/locale';
+import { useScrollIntoView } from '@mantine/hooks';
+
 import type { NextPage } from 'next';
+
+localizer.setup();
 
 const useStyles = createStyles(() => ({
   main: {},
-  'scroll-progress-wrapper': {
-    position: 'sticky',
-    top: 0,
-    left: 0,
-    right: 0,
+  'language-switcher-wrapper': {
+    position: 'fixed',
+    bottom: 0,
+    left: '50%',
+    width: 400,
+    zIndex: 9999,
+    transform: 'translateX(-50%)',
+    '& > *': {
+      transform: 'translateY(85%)',
+      transition: 'transform 150ms ease',
+    },
+    '&:hover > *': {
+      transform: 'translateY(-1rem)',
+    },
   },
 }));
 
@@ -22,12 +40,26 @@ interface Props {
 
 const Home: NextPage<Props> = ({ projects }) => {
   const { classes } = useStyles();
+  const locale = useLocaleStore(s => s.locale);
+  const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
+    duration: 555,
+  });
+
+  const handleClickScrollToTop = () => scrollIntoView();
+
+  useEffect(() => {
+    i18next.changeLanguage(locale);
+  }, [locale]);
 
   return (
-    <div className={classes.main}>
-      <div className={classes['scroll-progress-wrapper']}>
-        <ScrollProgress />
+    <div
+      className={classes.main}
+      ref={targetRef}
+    >
+      <div className={classes['language-switcher-wrapper']}>
+        <LanguageSwitcher />
       </div>
+      <ScrollToTop onClick={handleClickScrollToTop} />
       <Main />
       <Projects projects={projects} />
     </div>

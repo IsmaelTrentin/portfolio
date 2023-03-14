@@ -1,41 +1,43 @@
 import React, { useEffect, useState } from 'react';
+import { LocaleKeys } from '../../locales/localizer';
 import { materialDark as theme } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { useLocaleStore } from '../../stores/locale';
 import { useStyles } from './styles';
-
-const data = `// Me in 16 lines 🔍
-{
-  name: 'Ismael Trentin',
-  gender: 'male',
-  nationality: 'Swiss',
-  age: ${Math.floor(
-    (Date.now() - 1027807200000) / 1000 / 60 / 60 / 24 / 30.5 / 12
-  )},
-  email: 'ismaeltrentin@gmail.com',
-  languages: ['Italian', 'English']
-  pLanguages: [
-    'TypeScript',
-    'Java',
-    'Rust'
-  ],
-  loves: 'Hiking ⛰️',
-  dislikes: 'Hot weather 🥵'
-}`;
+import { useTranslation } from 'react-i18next';
 
 const TICK_RATE_MS = 23;
 const TICK_START_DELAY = 200;
+
+// TODO: refactor with bool for when reached end of infoData.
+// shortest translation will have precedence
+// (causes longer translations to instantly reach the end)
+
+const age = Math.floor(
+  (Date.now() - 1027807200000) / 1000 / 60 / 60 / 24 / 30.5 / 12
+);
 
 export const InfoCode: React.FC<Record<string, unknown>> = () => {
   const { classes } = useStyles();
   const [currentChar, setCurrentChar] = useState(0);
   const [currentLine, setCurrentLine] = useState(1);
+  const { t } = useTranslation();
+  const locale = useLocaleStore(s => s.locale);
+  const [infoData, setInfoData] = useState(() =>
+    t<LocaleKeys>('infoCode', { age })
+  );
   const [text, setText] = useState('');
+
+  useEffect(() => {
+    setInfoData(() => t<LocaleKeys>('infoCode', { age }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [locale]);
 
   useEffect(() => {
     let intervalId: NodeJS.Timer;
     const handleTick = () => {
       setCurrentChar(ps => {
-        if (ps === data.length - 1) {
+        if (ps >= infoData.length - 1) {
           clearInterval(intervalId);
         }
         return ps + 1;
@@ -50,17 +52,18 @@ export const InfoCode: React.FC<Record<string, unknown>> = () => {
       clearInterval(intervalId);
       clearTimeout(timeoutId);
     };
-  }, []);
+  }, [infoData]);
 
   useEffect(() => {
-    data.charAt(currentChar) === '\n' && setCurrentLine(ps => ps + 1);
+    infoData.charAt(currentChar) === '\n' && setCurrentLine(ps => ps + 1);
 
-    let newText = data.substring(0, currentChar);
-    if (currentChar < data.length - 1) {
+    let newText = infoData.substring(0, currentChar);
+
+    if (currentChar < infoData.length - 1) {
       newText += '|';
     }
     setText(newText);
-  }, [currentChar]);
+  }, [currentChar, infoData]);
 
   return (
     <SyntaxHighlighter

@@ -1,12 +1,15 @@
 import React from 'react';
 import { InfoCode } from '../../components/InfoCode';
+import { LocaleKeys } from '../../locales/localizer';
 import { Section } from '../../components/Section';
 import { Text } from '@mantine/core';
 import { useStyles } from './styles';
+import { useTranslation } from 'react-i18next';
 import { Waves } from '../../components/Waves';
 
 export const Main: React.FC<Record<string, unknown>> = () => {
   const { classes } = useStyles();
+  const { t } = useTranslation();
 
   return (
     <Section className={classes.section}>
@@ -19,12 +22,12 @@ export const Main: React.FC<Record<string, unknown>> = () => {
         </Text>
         <Text
           component="h6"
-          size="sm"
+          size="md"
           className={classes.subtitle}
         >
-          IT Technician
+          {t<LocaleKeys>('itTechnician')}
           <span>/</span>
-          Fullstack developer
+          {t<LocaleKeys>('fullstackDev')}
         </Text>
       </div>
       <div className={classes['info-code']}>

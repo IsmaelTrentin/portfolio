@@ -1,9 +1,11 @@
 import React from 'react';
+import { LocaleKeys } from '../../locales/localizer';
 import { Project } from '../../components/Project';
 import { ProjectData } from '../../@types';
 import { Section } from '../../components/Section';
 import { Text } from '@mantine/core';
 import { useStyles } from './styles';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   projects: ProjectData[];
@@ -12,6 +14,7 @@ interface Props {
 export const Projects: React.FC<Props> = props => {
   const { projects } = props;
   const { classes } = useStyles();
+  const { t } = useTranslation();
 
   return (
     <Section className={classes.section}>
@@ -19,7 +22,7 @@ export const Projects: React.FC<Props> = props => {
         component="h1"
         className={classes.title}
       >
-        My Projects
+        {t<LocaleKeys>('projectsHeader')}
       </Text>
       <div className={classes.projects}>
         {projects.map((p, i) => (
