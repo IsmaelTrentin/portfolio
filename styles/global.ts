@@ -5,6 +5,7 @@ export const globalStyles: MantineThemeOverride['globalStyles'] = theme => ({
     boxSizing: 'border-box',
     margin: 0,
     padding: 0,
+    // wrong as hell but hey, too late now
     fontSize: 18,
   },
   h1: {
