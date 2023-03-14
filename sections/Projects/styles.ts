@@ -18,6 +18,6 @@ export const useStyles = createStyles(theme => ({
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'center',
-    gap: '1rem',
+    gap: '1.75rem',
   },
 }));
