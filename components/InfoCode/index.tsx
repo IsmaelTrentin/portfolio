@@ -32,15 +32,19 @@ export const InfoCode: React.FC<Record<string, unknown>> = () => {
   const [text, setText] = useState('');
 
   useEffect(() => {
+    let intervalId: NodeJS.Timer;
     const handleTick = () => {
-      setCurrentChar(ps => ps + 1);
+      setCurrentChar(ps => {
+        if (ps === data.length - 1) {
+          clearInterval(intervalId);
+        }
+        return ps + 1;
+      });
     };
 
-    let intervalId: NodeJS.Timer;
-    const timeoutId = setTimeout(
-      () => (intervalId = setInterval(handleTick, TICK_RATE_MS)),
-      TICK_START_DELAY
-    );
+    const timeoutId = setTimeout(() => {
+      intervalId = setInterval(handleTick, TICK_RATE_MS);
+    }, TICK_START_DELAY);
 
     return () => {
       clearInterval(intervalId);
