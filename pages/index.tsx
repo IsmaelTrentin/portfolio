@@ -10,6 +10,7 @@ import { ScrollToTop } from '../components/ScrollToTop';
 import { useEffect } from 'react';
 import { useLocaleStore } from '../stores/locale';
 import { useScrollIntoView } from '@mantine/hooks';
+import { useScrollY } from '../hooks/useScrollY';
 
 import type { NextPage } from 'next';
 
@@ -28,6 +29,9 @@ const useStyles = createStyles(() => ({
       transform: 'translateY(85%)',
       transition: 'transform 150ms ease',
     },
+    '&[data-raise="true"] > *': {
+      transform: 'translateY(50%)',
+    },
     '&:hover > *': {
       transform: 'translateY(-1rem)',
     },
@@ -41,6 +45,7 @@ interface Props {
 const Home: NextPage<Props> = ({ projects }) => {
   const { classes } = useStyles();
   const locale = useLocaleStore(s => s.locale);
+  const scrollY = useScrollY();
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
     duration: 555,
   });
@@ -56,7 +61,10 @@ const Home: NextPage<Props> = ({ projects }) => {
       className={classes.main}
       ref={targetRef}
     >
-      <div className={classes['language-switcher-wrapper']}>
+      <div
+        data-raise={scrollY < 70}
+        className={classes['language-switcher-wrapper']}
+      >
         <LanguageSwitcher />
       </div>
       <ScrollToTop onClick={handleClickScrollToTop} />
