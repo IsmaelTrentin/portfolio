@@ -1,4 +1,5 @@
 import React, { CSSProperties } from 'react';
+import { MediaQuery } from '@mantine/core';
 
 interface Props {
   className?: string;
@@ -10,11 +11,20 @@ export const Section: React.FC<Props> = props => {
   const { className, style, children } = props;
 
   return (
-    <div
-      className={className}
-      style={style}
+    <MediaQuery
+      query="(max-width: 1273px)"
+      styles={{
+        paddingLeft: '3rem',
+        paddingRight: '3rem',
+        flexFlow: 'column nowrap',
+      }}
     >
-      {children}
-    </div>
+      <div
+        className={className}
+        style={style}
+      >
+        {children}
+      </div>
+    </MediaQuery>
   );
 };

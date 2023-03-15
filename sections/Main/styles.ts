@@ -4,16 +4,19 @@ import { sectionStyles } from '../../styles/section';
 export const useStyles = createStyles(theme => ({
   section: {
     ...sectionStyles,
-    paddingLeft: '10rem',
-    paddingRight: '10rem',
+    paddingLeft: '8rem',
+    paddingRight: '8rem',
     position: 'relative',
-    height: '100vh',
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'space-between',
     alignItems: 'center',
+    minHeight: '100vh',
     // backgroundColor: '#e942f530',
     backgroundColor: theme.colors.violet[3],
+  },
+  'section-sm': {
+    justifyContent: 'flex-start',
   },
   title: {
     fontSize: '3.5rem',
@@ -29,8 +32,8 @@ export const useStyles = createStyles(theme => ({
       margin: '0 1rem',
       opacity: 0.5,
     },
+    marginBottom: '1.5rem',
   },
-  'info-code': {},
   waves: {
     display: 'flex',
     alignItems: 'end',

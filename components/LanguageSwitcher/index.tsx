@@ -1,14 +1,20 @@
 import React from 'react';
 import { LocaleButton } from '../LocaleButton';
 import { useLocaleStore } from '../../stores/locale';
+import { useMediaQuery } from '@mantine/hooks';
 import { useStyles } from './styles';
 
 export const LanguageSwitcher: React.FC<Record<string, unknown>> = () => {
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
   const { locale, setLocale } = useLocaleStore(s => s);
+  const match = useMediaQuery('(max-width: 391px');
 
   return (
-    <div className={classes.main}>
+    <div
+      className={cx(classes.main, {
+        [classes['main-xs']]: match,
+      })}
+    >
       <LocaleButton
         locale="it"
         isSelected={locale === 'it'}

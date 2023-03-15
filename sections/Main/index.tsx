@@ -3,16 +3,22 @@ import { InfoCode } from '../../components/InfoCode';
 import { LocaleKeys } from '../../locales/localizer';
 import { Section } from '../../components/Section';
 import { Text } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import { useStyles } from './styles';
 import { useTranslation } from 'react-i18next';
 import { Waves } from '../../components/Waves';
 
 export const Main: React.FC<Record<string, unknown>> = () => {
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation();
+  const match = useMediaQuery('(max-width: 1273px)');
 
   return (
-    <Section className={classes.section}>
+    <Section
+      className={cx(classes.section, {
+        [classes['section-sm']]: match,
+      })}
+    >
       <div>
         <Text
           component="h1"
@@ -30,9 +36,7 @@ export const Main: React.FC<Record<string, unknown>> = () => {
           {t<LocaleKeys>('fullstackDev')}
         </Text>
       </div>
-      <div className={classes['info-code']}>
-        <InfoCode />
-      </div>
+      <InfoCode />
       <div className={classes.waves}>
         <Waves />
       </div>

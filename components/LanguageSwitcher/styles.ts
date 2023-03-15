@@ -15,4 +15,8 @@ export const useStyles = createStyles(theme => ({
     borderRadius: 20,
     boxShadow: '0 0 16px 0 #00000022',
   },
+  'main-xs': {
+    width: '100%',
+    overflow: 'hidden',
+  },
 }));

@@ -9,7 +9,7 @@ import { readFile } from 'fs/promises';
 import { ScrollToTop } from '../components/ScrollToTop';
 import { useEffect } from 'react';
 import { useLocaleStore } from '../stores/locale';
-import { useScrollIntoView } from '@mantine/hooks';
+import { useMediaQuery, useScrollIntoView } from '@mantine/hooks';
 import { useScrollY } from '../hooks/useScrollY';
 
 import type { NextPage } from 'next';
@@ -23,7 +23,7 @@ const useStyles = createStyles(() => ({
     bottom: 0,
     left: '50%',
     width: 400,
-    zIndex: 9999,
+    zIndex: 999,
     transform: 'translateX(-50%)',
     '& > *': {
       transform: 'translateY(85%)',
@@ -36,6 +36,9 @@ const useStyles = createStyles(() => ({
       transform: 'translateY(-1rem)',
     },
   },
+  'language-switcher-wrapper-xs': {
+    width: '100%',
+  },
 }));
 
 interface Props {
@@ -43,12 +46,14 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ projects }) => {
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
   const locale = useLocaleStore(s => s.locale);
   const scrollY = useScrollY();
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
     duration: 555,
   });
+  const matchHideScrollToTop = useMediaQuery('(min-width: 645px)');
+  const matchLangSwitcherFullWidth = useMediaQuery('(max-width: 391px');
 
   const handleClickScrollToTop = () => scrollIntoView();
 
@@ -63,11 +68,13 @@ const Home: NextPage<Props> = ({ projects }) => {
     >
       <div
         data-raise={scrollY < 70}
-        className={classes['language-switcher-wrapper']}
+        className={cx(classes['language-switcher-wrapper'], {
+          [classes['language-switcher-wrapper-xs']]: matchLangSwitcherFullWidth,
+        })}
       >
         <LanguageSwitcher />
       </div>
-      <ScrollToTop onClick={handleClickScrollToTop} />
+      {matchHideScrollToTop && <ScrollToTop onClick={handleClickScrollToTop} />}
       <Main />
       <Projects projects={projects} />
     </div>

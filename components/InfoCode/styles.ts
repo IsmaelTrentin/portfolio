@@ -20,4 +20,7 @@ export const useStyles = createStyles(theme => ({
     transition: 'max-height ease 250ms',
     animation: `${animationIn} 300ms ease forwards`,
   },
+  sm: {
+    transform: 'scale(0.65) !important',
+  },
 }));

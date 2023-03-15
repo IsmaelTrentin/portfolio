@@ -5,7 +5,7 @@ export const useStyles = createStyles(theme => ({
     position: 'fixed',
     right: '-4rem',
     bottom: '2.5rem',
-    zIndex: 9999,
+    zIndex: 998,
     opacity: 0,
     boxShadow: `0 0 9px 0 ${theme.colors.violet[2]}`,
     transition: 'right 360ms ease, opacity 360ms ease',
