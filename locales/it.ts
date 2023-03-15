@@ -2,7 +2,7 @@ import { Locale } from './localizer';
 
 export const itLocale: Partial<Locale> = {
   fullstackDev: 'Sviluppatore Fullstack',
-  itTechnician: 'Informatico Aziendale',
+  itTechnician: 'Informatico',
   projectsHeader: 'Progetti',
   infoCode: `// 16 righe di me 🔍
 {

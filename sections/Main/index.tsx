@@ -11,12 +11,13 @@ import { Waves } from '../../components/Waves';
 export const Main: React.FC<Record<string, unknown>> = () => {
   const { classes, cx } = useStyles();
   const { t } = useTranslation();
-  const match = useMediaQuery('(max-width: 1273px)');
+  const matchLg = useMediaQuery('(max-width: 1273px)');
+  const matchXs = useMediaQuery('(min-width: 391px)');
 
   return (
     <Section
       className={cx(classes.section, {
-        [classes['section-sm']]: match,
+        [classes['section-sm']]: matchLg,
       })}
     >
       <div>
@@ -26,15 +27,35 @@ export const Main: React.FC<Record<string, unknown>> = () => {
         >
           Ismael Trentin
         </Text>
-        <Text
-          component="h6"
-          size="md"
-          className={classes.subtitle}
-        >
-          {t<LocaleKeys>('itTechnician')}
-          <span>/</span>
-          {t<LocaleKeys>('fullstackDev')}
-        </Text>
+        {matchXs ? (
+          <Text
+            component="h6"
+            size="md"
+            className={classes.subtitle}
+          >
+            {t<LocaleKeys>('itTechnician')}
+            <span>/</span>
+            {t<LocaleKeys>('fullstackDev')}
+          </Text>
+        ) : (
+          <>
+            {' '}
+            <Text
+              component="h6"
+              size="md"
+              className={classes.subtitle}
+            >
+              {t<LocaleKeys>('itTechnician')}
+            </Text>
+            <Text
+              component="h6"
+              size="md"
+              className={classes.subtitle}
+            >
+              {t<LocaleKeys>('fullstackDev')}
+            </Text>
+          </>
+        )}
       </div>
       <InfoCode />
       <div className={classes.waves}>

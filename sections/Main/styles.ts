@@ -32,7 +32,9 @@ export const useStyles = createStyles(theme => ({
       margin: '0 1rem',
       opacity: 0.5,
     },
-    marginBottom: '1.5rem',
+    '&:last-child': {
+      marginBottom: '1.5rem',
+    },
   },
   waves: {
     display: 'flex',
