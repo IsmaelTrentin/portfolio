@@ -12,7 +12,7 @@ export const Main: React.FC<Record<string, unknown>> = () => {
   const { classes, cx } = useStyles();
   const { t } = useTranslation();
   const matchLg = useMediaQuery('(max-width: 1273px)');
-  const matchXs = useMediaQuery('(min-width: 391px)');
+  const matchXs = useMediaQuery('(min-width: 443px)');
 
   return (
     <Section
