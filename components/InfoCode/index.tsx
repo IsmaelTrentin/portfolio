@@ -3,7 +3,6 @@ import { LocaleKeys } from '../../locales/localizer';
 import { materialDark as theme } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { useLocaleStore } from '../../stores/locale';
-import { useMediaQuery } from '@mantine/hooks';
 import { useStyles } from './styles';
 import { useTranslation } from 'react-i18next';
 
@@ -19,7 +18,7 @@ const age = Math.floor(
 );
 
 export const InfoCode: React.FC<Record<string, unknown>> = () => {
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles();
   const [currentChar, setCurrentChar] = useState(0);
   const [currentLine, setCurrentLine] = useState(1);
   const { t } = useTranslation();
@@ -28,7 +27,6 @@ export const InfoCode: React.FC<Record<string, unknown>> = () => {
     t<LocaleKeys>('infoCode', { age })
   );
   const [text, setText] = useState('');
-  const match = useMediaQuery('(max-width: 550px)');
 
   useEffect(() => {
     setInfoData(() => t<LocaleKeys>('infoCode', { age }));
@@ -69,9 +67,7 @@ export const InfoCode: React.FC<Record<string, unknown>> = () => {
 
   return (
     <SyntaxHighlighter
-      className={cx(classes.main, {
-        [classes.sm]: match,
-      })}
+      className={classes.main}
       customStyle={{
         maxHeight: 22.5 * 2 + currentLine * 27,
         overflow: 'hidden',

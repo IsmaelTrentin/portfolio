@@ -10,17 +10,14 @@ const animationIn = keyframes({
 
 export const useStyles = createStyles(theme => ({
   main: {
-    width: 525,
-    maxHeight: 477,
+    width: '100%',
+    height: '100%',
     opacity: 0,
+    margin: '0px !important',
     borderRadius: theme.radius.lg,
     backgroundColor: theme.colors.dark[4],
     boxShadow: '0 4px 8px 0 rgba(0, 0, 0, .4)',
-    overflow: 'hidden', // useless but better safe than sorry
     transition: 'max-height ease 250ms',
     animation: `${animationIn} 300ms ease forwards`,
-  },
-  sm: {
-    transform: 'scale(0.65) !important',
   },
 }));

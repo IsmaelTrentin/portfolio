@@ -12,52 +12,62 @@ export const Main: React.FC<Record<string, unknown>> = () => {
   const { classes, cx } = useStyles();
   const { t } = useTranslation();
   const matchLg = useMediaQuery('(max-width: 1273px)');
-  const matchXs = useMediaQuery('(min-width: 443px)');
+  const matchXs = useMediaQuery('(min-width: 491px)');
+  const matchInfoCodeXs = useMediaQuery('(max-width: 604px)');
 
   return (
-    <Section
-      className={cx(classes.section, {
-        [classes['section-sm']]: matchLg,
-      })}
-    >
-      <div>
-        <Text
-          component="h1"
-          className={classes.title}
-        >
-          Ismael Trentin
-        </Text>
-        {matchXs ? (
+    <Section className={classes.section}>
+      <div
+        className={cx(classes.container, {
+          [classes['container-sm']]: matchLg,
+        })}
+      >
+        <div className={classes['text-wrapper']}>
           <Text
-            component="h6"
-            size="md"
-            className={classes.subtitle}
+            component="h1"
+            className={classes.title}
           >
-            {t<LocaleKeys>('itTechnician')}
-            <span>/</span>
-            {t<LocaleKeys>('fullstackDev')}
+            Ismael Trentin
           </Text>
-        ) : (
-          <>
-            {' '}
+          {matchXs ? (
             <Text
               component="h6"
               size="md"
               className={classes.subtitle}
             >
               {t<LocaleKeys>('itTechnician')}
-            </Text>
-            <Text
-              component="h6"
-              size="md"
-              className={classes.subtitle}
-            >
+              <span>/</span>
               {t<LocaleKeys>('fullstackDev')}
             </Text>
-          </>
-        )}
+          ) : (
+            <>
+              {' '}
+              <Text
+                component="h6"
+                size="md"
+                className={classes.subtitle}
+              >
+                {t<LocaleKeys>('itTechnician')}
+              </Text>
+              <Text
+                component="h6"
+                size="md"
+                className={classes.subtitle}
+              >
+                {t<LocaleKeys>('fullstackDev')}
+              </Text>
+            </>
+          )}
+        </div>
+        <div
+          className={cx(classes['infocode-wrapper'], {
+            [classes['infocode-wrapper-sm']]: matchLg,
+            [classes['infocode-wrapper-xs']]: matchInfoCodeXs,
+          })}
+        >
+          <InfoCode />
+        </div>
       </div>
-      <InfoCode />
       <div className={classes.waves}>
         <Waves />
       </div>
