@@ -9,19 +9,13 @@ import { useTranslation } from 'react-i18next';
 import { Waves } from '../../components/Waves';
 
 export const Main: React.FC<Record<string, unknown>> = () => {
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation();
-  const matchLg = useMediaQuery('(max-width: 1273px)');
   const matchXs = useMediaQuery('(min-width: 491px)');
-  const matchInfoCodeXs = useMediaQuery('(max-width: 604px)');
 
   return (
     <Section className={classes.section}>
-      <div
-        className={cx(classes.container, {
-          [classes['container-sm']]: matchLg,
-        })}
-      >
+      <div className={classes.container}>
         <div className={classes['text-wrapper']}>
           <Text
             component="h1"
@@ -59,12 +53,7 @@ export const Main: React.FC<Record<string, unknown>> = () => {
             </>
           )}
         </div>
-        <div
-          className={cx(classes['infocode-wrapper'], {
-            [classes['infocode-wrapper-sm']]: matchLg,
-            [classes['infocode-wrapper-xs']]: matchInfoCodeXs,
-          })}
-        >
+        <div className={classes['infocode-wrapper']}>
           <InfoCode />
         </div>
       </div>

@@ -1,6 +1,9 @@
 import { createStyles } from '@mantine/core';
 import { sectionStyles } from '../../styles/section';
 
+const mqLg = '@media (max-width: 1273px)';
+const mqSm = '@media (max-width: 604px)';
+
 export const useStyles = createStyles(theme => ({
   section: {
     ...sectionStyles,
@@ -23,18 +26,22 @@ export const useStyles = createStyles(theme => ({
     alignItems: 'center',
     width: '100%',
     maxWidth: 1600,
-  },
-  'container-sm': {
-    justifyContent: 'center',
+    [mqLg]: {
+      justifyContent: 'center',
+    },
   },
   'text-wrapper': {
     marginRight: '2rem',
+    marginBottom: '1.5rem',
   },
   title: {
     fontSize: '3.5rem',
     fontWeight: 400,
     lineHeight: '3.5rem',
     transform: 'translateX(-5px)',
+    [mqSm]: {
+      transform: 'translateX(0px)',
+    },
   },
   subtitle: {
     fontWeight: 400,
@@ -44,9 +51,6 @@ export const useStyles = createStyles(theme => ({
       margin: '0 1rem',
       opacity: 0.5,
     },
-    '&:last-child': {
-      marginBottom: '1.5rem',
-    },
   },
   'infocode-wrapper': {
     // display: 'flex',
@@ -55,14 +59,14 @@ export const useStyles = createStyles(theme => ({
     width: 525,
     // maxHeight: 477,
     minWidth: 525,
-  },
-  'infocode-wrapper-sm': {
-    minHeight: 477,
-    alignContent: 'center',
-    alignItems: 'flex-start',
-  },
-  'infocode-wrapper-xs': {
-    transform: 'scale(0.65) !important',
+    [mqSm]: {
+      transform: 'scale(0.65) !important',
+    },
+    [mqLg]: {
+      minHeight: 477,
+      alignContent: 'center',
+      alignItems: 'flex-start',
+    },
   },
   waves: {
     display: 'flex',

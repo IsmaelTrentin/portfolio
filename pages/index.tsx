@@ -17,7 +17,6 @@ import type { NextPage } from 'next';
 localizer.setup();
 
 const useStyles = createStyles(() => ({
-  main: {},
   'language-switcher-wrapper': {
     position: 'fixed',
     bottom: 0,
@@ -35,9 +34,9 @@ const useStyles = createStyles(() => ({
     '&:hover > *': {
       transform: 'translateY(-1rem)',
     },
-  },
-  'language-switcher-wrapper-xs': {
-    width: '100%',
+    '@media (max-width: 391px)': {
+      width: '100vw',
+    },
   },
 }));
 
@@ -46,14 +45,13 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ projects }) => {
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles();
   const locale = useLocaleStore(s => s.locale);
   const scrollY = useScrollY();
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
     duration: 555,
   });
   const matchHideScrollToTop = useMediaQuery('(min-width: 645px)');
-  const matchLangSwitcherFullWidth = useMediaQuery('(max-width: 391px');
 
   const handleClickScrollToTop = () => scrollIntoView();
 
@@ -62,15 +60,10 @@ const Home: NextPage<Props> = ({ projects }) => {
   }, [locale]);
 
   return (
-    <div
-      className={classes.main}
-      ref={targetRef}
-    >
+    <div ref={targetRef}>
       <div
         data-raise={scrollY < 70}
-        className={cx(classes['language-switcher-wrapper'], {
-          [classes['language-switcher-wrapper-xs']]: matchLangSwitcherFullWidth,
-        })}
+        className={classes['language-switcher-wrapper']}
       >
         <LanguageSwitcher />
       </div>

@@ -1,5 +1,7 @@
 import { createStyles } from '@mantine/core';
 
+const mqXs = '@media (max-width: 391px)';
+
 export const useStyles = createStyles(theme => ({
   main: {
     display: 'flex',
@@ -14,9 +16,9 @@ export const useStyles = createStyles(theme => ({
     backgroundColor: theme.white,
     borderRadius: 20,
     boxShadow: '0 0 16px 0 #00000022',
-  },
-  'main-xs': {
-    width: '100%',
-    overflow: 'hidden',
+    [mqXs]: {
+      width: '100%',
+      overflow: 'hidden',
+    },
   },
 }));
