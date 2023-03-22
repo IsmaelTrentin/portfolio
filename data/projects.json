@@ -1,26 +1,44 @@
 [
   {
-    "title": "Car Sharing App",
+    "title": {
+      "en": "Car Sharing App",
+      "it": "App Car Sharing"
+    },
     "image": "https://media.discordapp.net/attachments/1084557231967715348/1084557250011598898/image.png?width=1197&height=675",
     "hostUrl": "",
     "repoUrl": "",
     "tags": ["typescript", "react", "mongodb", "redux"],
-    "description": "Car sharing app bla bla LPI bla lorem inculet"
+    "description": {
+      "en": "Car sharing app for helping parents organize their children's transports to after-school activities.",
+      "it": "App per aiutare i genitori ad organizzare i trasporti dei loro bambini alle attivita' dopo scuola."
+    }
   },
   {
-    "title": "Lyrx - Spotify Clone",
+    "title": {
+      "en": "Lyrx - Spotify Clone",
+      "it": "Lyrx - Clone Spotify"
+    },
     "image": "https://media.discordapp.net/attachments/1084557231967715348/1084560408444158013/image.png",
     "hostUrl": "",
     "repoUrl": "",
     "tags": ["typescript", "react", "mongodb"],
-    "description": "Spotify clone for band tour management bla bla lorem"
+    "description": {
+      "en": "Spotify clone for band tour management. Upload songs and lyrics and listen, read or edit them on demand.",
+      "it": "Clone di Spotify pensato per gestire i tour delle band. Carica canzoni e i loro testi per ascoltarli, leggerli o modificarli in tempo reale."
+    }
   },
   {
-    "title": "Online Quiz",
+    "title": {
+      "en": "Online Quiz",
+      "it": "Quiz Online"
+    },
     "image": "https://media.discordapp.net/attachments/1084557231967715348/1084563172784099510/image.png",
     "hostUrl": "",
     "repoUrl": "",
     "tags": ["typescript", "react", "mongodb"],
-    "description": "Online quiz for testing your knowledge on various driver's license exams"
+    "description": {
+      "en": "Online quiz for testing your knowledge on various driver's license exams.",
+      "it": "Quiz online per gli esami teorici di varie patenti di guida."
+    }
   }
 ]

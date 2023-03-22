@@ -3,6 +3,7 @@ import { AvailableTagIcons, ProjectData } from '../../@types';
 import { IconRenderer } from '../IconRenderer';
 import { Text } from '@mantine/core';
 import { useStyles } from './styles';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   project: ProjectData;
@@ -11,6 +12,7 @@ interface Props {
 export const Project: React.FC<Props> = props => {
   const { project } = props;
   const { classes } = useStyles();
+  const [, i18n] = useTranslation();
 
   return (
     <div className={classes.main}>
@@ -27,7 +29,12 @@ export const Project: React.FC<Props> = props => {
           weight={500}
           transform="capitalize"
         >
-          {project.title}
+          {
+            // i18n.fallbackLangs is tedious to work with.
+            // 'en' is in any case the fallback language for this website.
+            project.title[i18n.language as keyof typeof project.title] ??
+              project.title['en']
+          }
         </Text>
         <div className={classes.tags}>
           {project.tags.sort().map((t, i) => (
@@ -44,7 +51,9 @@ export const Project: React.FC<Props> = props => {
           align="justify"
           lineClamp={3}
         >
-          {project.description}
+          {project.description[
+            i18n.language as keyof typeof project.description
+          ] ?? project.description['en']}
         </Text>
       </div>
     </div>

@@ -6,11 +6,11 @@ export const itLocale: Partial<Locale> = {
   projectsHeader: 'Progetti',
   infoCode: `// 16 righe di me 🔍
 {
-  nome: 'Ismael Trentin',
-  sesso: 'maschio',
+  nome: 'Ismael',
+  cognome: 'Trentin',
+  anni: {{age}},
   nazionalita: 'Svizzera',
-  eta: {{age}},
-  email: 'ismaeltrentin@gmail.com',
+  sesso: 'maschio',
   lingue: ['Italiano', 'Inglese']
   linguaggi: [
     'TypeScript',

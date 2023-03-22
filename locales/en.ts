@@ -6,18 +6,18 @@ export const enLocale: Partial<Locale> = {
   projectsHeader: 'My Projects',
   infoCode: `// Me in 16 lines 🔍
 {
-  name: 'Ismael Trentin',
-  gender: 'male',
-  nationality: 'Swiss',
+  name: 'Ismael',
+  surname: 'Trentin',
   age: {{age}},
-  email: 'ismaeltrentin@gmail.com',
+  nationality: 'Swiss',
+  gender: 'male',
   languages: ['Italian', 'English']
   pLanguages: [
     'TypeScript',
     'Java',
     'Rust'
   ],
-  loves: 'Hiking ⛰️',
-  dislikes: 'Hot weather 🥵'
+  iLike: 'Hiking ⛰️',
+  iDislike: 'Hot weather 🥵'
 }`,
 };

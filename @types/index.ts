@@ -15,11 +15,18 @@ export type MappedTagsIcon = {
   };
 };
 
-export interface ProjectData {
-  title: string;
+type LocalizedResource = {
+  en: string;
+  it?: string;
+  de?: string;
+  fr?: string;
+};
+
+export type ProjectData = {
+  title: LocalizedResource;
   image: string;
   hostUrl: string;
   repoUrl: string;
   tags: AvailableTagIcons[];
-  description: string;
-}
+  description: LocalizedResource;
+};
