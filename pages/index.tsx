@@ -1,5 +1,4 @@
 import * as localizer from '../locales/localizer';
-import i18next from 'i18next';
 import { createStyles } from '@mantine/core';
 import { LanguageSwitcher } from '../components/LanguageSwitcher';
 import { Main } from '../sections/Main';
@@ -7,8 +6,6 @@ import { ProjectData } from '../@types';
 import { Projects } from '../sections/Projects';
 import { readFile } from 'fs/promises';
 import { ScrollToTop } from '../components/ScrollToTop';
-import { useEffect } from 'react';
-import { useLocaleStore } from '../stores/locale';
 import { useMediaQuery, useScrollIntoView } from '@mantine/hooks';
 import { useScrollY } from '../hooks/useScrollY';
 
@@ -46,7 +43,6 @@ interface Props {
 
 const Home: NextPage<Props> = ({ projects }) => {
   const { classes } = useStyles();
-  const locale = useLocaleStore(s => s.locale);
   const scrollY = useScrollY();
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
     duration: 555,
@@ -54,10 +50,6 @@ const Home: NextPage<Props> = ({ projects }) => {
   const matchHideScrollToTop = useMediaQuery('(min-width: 645px)');
 
   const handleClickScrollToTop = () => scrollIntoView();
-
-  useEffect(() => {
-    i18next.changeLanguage(locale);
-  }, [locale]);
 
   return (
     <div ref={targetRef}>

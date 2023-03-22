@@ -1,11 +1,24 @@
 import Head from 'next/head';
+import i18next from 'i18next';
 import { AppProps } from 'next/app';
 import { globalStyles } from '../styles/global';
 import { MantineProvider } from '@mantine/core';
 import { theme } from '../styles/theme';
+import { useEffect } from 'react';
+import { useLocaleStore } from '../stores/locale';
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
+  const { locale, setLocale } = useLocaleStore();
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    setLocale(searchParams.get('acceptLang') || 'en');
+  }, [setLocale]);
+
+  useEffect(() => {
+    i18next.changeLanguage(locale);
+  }, [locale]);
 
   return (
     <>
