@@ -25,12 +25,14 @@ export const Projects: React.FC<Props> = props => {
         {t<LocaleKeys>('projectsHeader')}
       </Text>
       <div className={classes.projects}>
-        {projects.map((p, i) => (
-          <Project
-            key={i}
-            project={p}
-          />
-        ))}
+        {projects
+          .sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0))
+          .map((p, i) => (
+            <Project
+              key={i}
+              project={p}
+            />
+          ))}
       </div>
     </Section>
   );

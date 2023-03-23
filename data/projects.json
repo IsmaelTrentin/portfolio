@@ -11,7 +11,8 @@
     "description": {
       "en": "Car sharing app for helping parents organize their children's transports to after-school activities.",
       "it": "App per aiutare i genitori ad organizzare i trasporti dei loro bambini alle attivita' dopo scuola."
-    }
+    },
+    "date": 1641337200000
   },
   {
     "title": {
@@ -25,7 +26,8 @@
     "description": {
       "en": "Spotify clone for band tour management. Upload songs and lyrics and listen, read or edit them on demand.",
       "it": "Clone di Spotify pensato per gestire i tour delle band. Carica canzoni e i loro testi per ascoltarli, leggerli o modificarli in tempo reale."
-    }
+    },
+    "date": 1640991600000
   },
   {
     "title": {
@@ -39,6 +41,52 @@
     "description": {
       "en": "Online quiz for testing your knowledge on various driver's license exams.",
       "it": "Quiz online per gli esami teorici di varie patenti di guida."
-    }
+    },
+    "date": 1631397600000
+  },
+  {
+    "title": {
+      "en": "Portfolio",
+      "it": "Portfolio"
+    },
+    "image": "https://media.discordapp.net/attachments/1084557231967715348/1088352438731419729/image.png",
+    "hostUrl": "",
+    "repoUrl": "",
+    "tags": ["typescript", "react", "nextjs"],
+    "description": {
+      "en": "The website you are on right now.",
+      "it": "Il sito web dove ti trovi in questo momento."
+    },
+    "date": 1672700400000
+  },
+  {
+    "title": {
+      "en": "Wapu - MAL REST API",
+      "it": "Wapu - MAL REST API"
+    },
+    "image": "https://media.discordapp.net/attachments/1084557231967715348/1088356102296580146/image.png?width=1136&height=676",
+    "hostUrl": "",
+    "repoUrl": "",
+    "tags": ["typescript", "react", "mongodb"],
+    "description": {
+      "en": "A REST API for all the characters on myanimelist.net.",
+      "it": "Una API REST per i personaggi di myanimelist.net."
+    },
+    "date": 1641596400000
+  },
+  {
+    "title": {
+      "en": "School grades manager",
+      "it": "Gestore di note scolastiche"
+    },
+    "image": "https://media.discordapp.net/attachments/1084557231967715348/1088355295891304460/uiprev.png?width=1346&height=676",
+    "hostUrl": "",
+    "repoUrl": "",
+    "tags": ["typescript", "react", "mongodb"],
+    "description": {
+      "en": "A REST API for all the characters on myanimelist.net.",
+      "it": "Una API REST per i personaggi di myanimelist.net."
+    },
+    "date": 1649023200000
   }
 ]

@@ -3,11 +3,13 @@ import { AvailableTagIcons, MappedTagsIcon } from '../../@types';
 import {
   IconBrandMongodb,
   IconBrandMysql,
+  IconBrandNextjs,
   IconBrandReact,
   IconBrandReactNative,
   IconBrandRedux,
   IconBrandTypescript,
 } from '@tabler/icons-react';
+
 
 const icons: MappedTagsIcon = {
   react: {
@@ -33,6 +35,10 @@ const icons: MappedTagsIcon = {
   redux: {
     component: IconBrandRedux,
     color: '#764abc',
+  },
+  nextjs: {
+    component: IconBrandNextjs,
+    color: '#000000',
   },
 };
 

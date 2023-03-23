@@ -6,7 +6,8 @@ export type AvailableTagIcons =
   | 'typescript'
   | 'mongodb'
   | 'redux'
-  | 'mysql';
+  | 'mysql'
+  | 'nextjs';
 
 export type MappedTagsIcon = {
   [Property in AvailableTagIcons]: {
@@ -29,4 +30,5 @@ export type ProjectData = {
   repoUrl: string;
   tags: AvailableTagIcons[];
   description: LocalizedResource;
+  date: number;
 };
