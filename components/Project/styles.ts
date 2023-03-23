@@ -3,7 +3,7 @@ import { createStyles } from '@mantine/core';
 export const useStyles = createStyles(theme => ({
   main: {
     width: 450,
-    height: 426, //253
+    height: 430, //253 (426 raw)
     borderRadius: theme.radius.lg,
     border: `2px solid ${theme.colors.gray[2]}`,
     overflow: 'hidden',
@@ -14,6 +14,7 @@ export const useStyles = createStyles(theme => ({
     position: 'relative',
     width: '100%',
     height: '60%',
+    maxHeight: 253,
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
