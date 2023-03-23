@@ -52,6 +52,13 @@ export const Main: React.FC<Record<string, unknown>> = () => {
               </Text>
             </>
           )}
+          <Text
+            component="h6"
+            size="md"
+            className={classes.subtitle}
+          >
+            ismaeltrentin@gmail.com
+          </Text>
         </div>
         <div className={classes['infocode-wrapper']}>
           <InfoCode />
