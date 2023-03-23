@@ -39,7 +39,7 @@
     "repoUrl": "",
     "tags": ["typescript", "react", "mongodb"],
     "description": {
-      "en": "Online quiz for testing your knowledge on various driver's license exams. Create questions and quizzes, upload resources and get a recap of each completed tests.",
+      "en": "Online quiz for testing your knowledge on various driver's license exams. Create questions and quizzes, upload resources and get a recap for each completed test.",
       "it": "Quiz online per gli esami teorici di varie patenti di guida. Crea domande e quiz, carica risorse ed ottieni un esito di ogni prova d'esame svolta."
     },
     "date": 1631397600000
