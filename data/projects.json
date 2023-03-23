@@ -84,7 +84,7 @@
     "repoUrl": "",
     "tags": ["typescript", "react", "mongodb"],
     "description": {
-      "en": "A grades manager connected to your school infrastructure using LDAP.",
+      "en": "Grades manager connected to your school infrastructure using LDAP.",
       "it": "Un gestore di note scolastiche connesso all'infrastruttura della tua scuola tramite LDAP."
     },
     "date": 1649023200000
