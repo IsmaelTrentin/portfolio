@@ -19,7 +19,7 @@ export const LanguageSwitcher: React.FC<Record<string, unknown>> = () => {
         isSelected={locale === 'en'}
         onClick={() => setLocale('en')}
       />
-      <LocaleButton
+      {/* <LocaleButton
         locale="de"
         isSelected={locale === 'de'}
         onClick={() => setLocale('de')}
@@ -28,7 +28,7 @@ export const LanguageSwitcher: React.FC<Record<string, unknown>> = () => {
         locale="fr"
         isSelected={locale === 'fr'}
         onClick={() => setLocale('fr')}
-      />
+      /> */}
     </div>
   );
 };
