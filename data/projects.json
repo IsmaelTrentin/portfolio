@@ -54,8 +54,8 @@
     "repoUrl": "",
     "tags": ["typescript", "react", "nextjs"],
     "description": {
-      "en": "The website you are on right now.",
-      "it": "Il sito web dove ti trovi in questo momento."
+      "en": "The website you are on right now. Statically generated with localized resources and full CI/CD pipeline with Vercel.",
+      "it": "Il sito web dove ti trovi in questo momento. Pagine staticamente generate con traduzione e pipeline completa CI/CD con Vercel. "
     },
     "date": 1672700400000
   },
