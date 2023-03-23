@@ -1,5 +1,6 @@
 import * as localizer from '../locales/localizer';
 import { createStyles } from '@mantine/core';
+import { Footer } from '../components/Footer';
 import { LanguageSwitcher } from '../components/LanguageSwitcher';
 import { Main } from '../sections/Main';
 import { ProjectData } from '../@types';
@@ -28,6 +29,9 @@ const useStyles = createStyles(() => ({
     '&[data-raise="true"] > *': {
       transform: 'translateY(50%)',
     },
+    '&[data-raise-high="true"]:hover > *': {
+      transform: 'translateY(-4.15rem)',
+    },
     '&:hover > *': {
       transform: 'translateY(-1rem)',
     },
@@ -47,21 +51,36 @@ const Home: NextPage<Props> = ({ projects }) => {
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
     duration: 555,
   });
-  const matchHideScrollToTop = useMediaQuery('(min-width: 645px)');
+  const matchHideScrollToTop = useMediaQuery('(max-width: 645px)');
 
   const handleClickScrollToTop = () => scrollIntoView();
+
+  console.log(scrollY);
 
   return (
     <div ref={targetRef}>
       <div
         data-raise={scrollY < 70}
+        data-raise-high={scrollY >= 1644 && matchHideScrollToTop}
         className={classes['language-switcher-wrapper']}
       >
         <LanguageSwitcher />
       </div>
-      {matchHideScrollToTop && <ScrollToTop onClick={handleClickScrollToTop} />}
+      {!matchHideScrollToTop && (
+        <ScrollToTop onClick={handleClickScrollToTop} />
+      )}
       <Main />
       <Projects projects={projects} />
+      <Footer
+        links={[
+          { label: 'Email', link: 'mailto:ismaeltrentin@gmail.com' },
+          { label: 'GitHub', link: 'https://github.com/IsmaelTrentin' },
+          {
+            label: 'Repository',
+            link: 'https://github.com/IsmaelTrentin/portfolio',
+          },
+        ]}
+      />
     </div>
   );
 };

@@ -5,7 +5,7 @@ export const useStyles = createStyles(theme => ({
   section: {
     ...sectionStyles,
     paddingTop: '2rem',
-    paddingBottom: '2rem',
+    paddingBottom: '4rem',
     // display: 'flex',
     // flexFlow: 'row wrap',
   },
