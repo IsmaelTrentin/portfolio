@@ -67,7 +67,7 @@
     "image": "https://media.discordapp.net/attachments/1084557231967715348/1088356102296580146/image.png?width=1136&height=676",
     "hostUrl": "",
     "repoUrl": "",
-    "tags": ["typescript", "react", "mongodb"],
+    "tags": ["typescript", "mongodb"],
     "description": {
       "en": "A REST API for all the characters on myanimelist.net.",
       "it": "Una API REST per i personaggi di myanimelist.net."
