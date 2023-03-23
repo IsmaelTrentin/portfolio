@@ -55,8 +55,6 @@ const Home: NextPage<Props> = ({ projects }) => {
 
   const handleClickScrollToTop = () => scrollIntoView();
 
-  console.log(scrollY);
-
   return (
     <div ref={targetRef}>
       <div
