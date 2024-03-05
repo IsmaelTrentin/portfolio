@@ -19,7 +19,7 @@ export const Project: React.FC<Props> = props => {
       <div
         className={classes['image-wrapper']}
         style={{
-          backgroundImage: `${project.image}`,
+          backgroundImage: `url(${project.image})`,
         }}
       ></div>
       <div className={classes.bottom}>
