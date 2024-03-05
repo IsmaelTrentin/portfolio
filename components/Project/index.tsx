@@ -19,7 +19,7 @@ export const Project: React.FC<Props> = props => {
       <div
         className={classes['image-wrapper']}
         style={{
-          backgroundImage: `url(${project.image})`,
+          backgroundImage: `${project.image}`,
         }}
       ></div>
       <div className={classes.bottom}>
@@ -30,7 +30,7 @@ export const Project: React.FC<Props> = props => {
           transform="capitalize"
         >
           {
-            // i18n.fallbackLangs is tedious to work with.
+            // i18n.fallbackLangs is teadious to work with.
             // 'en' is in any case the fallback language for this website.
             project.title[i18n.language as keyof typeof project.title] ??
               project.title['en']
