@@ -6,6 +6,9 @@ import { MantineProvider } from '@mantine/core';
 import { theme } from '../styles/theme';
 import { useEffect } from 'react';
 import { useLocaleStore } from '../stores/locale';
+import * as localizer from '../locales/localizer';
+
+localizer.setup();
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;

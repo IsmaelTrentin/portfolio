@@ -1,4 +1,3 @@
-import * as localizer from '../locales/localizer';
 import { createStyles } from '@mantine/core';
 import { Footer } from '../components/Footer';
 import { LanguageSwitcher } from '../components/LanguageSwitcher';
@@ -11,8 +10,6 @@ import { useMediaQuery, useScrollIntoView } from '@mantine/hooks';
 import { useScrollY } from '../hooks/useScrollY';
 
 import type { NextPage } from 'next';
-
-localizer.setup();
 
 const useStyles = createStyles(() => ({
   'language-switcher-wrapper': {

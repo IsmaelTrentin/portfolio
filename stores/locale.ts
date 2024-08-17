@@ -8,7 +8,7 @@ type LocaleStore = {
 
 export const useLocaleStore = create<LocaleStore>(set => {
   return {
-    locale: i18next.language ?? 'en',
+    locale: i18next.language || 'en',
     setLocale: locale => set(() => ({ locale })),
   };
 });
